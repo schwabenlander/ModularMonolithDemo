@@ -1,0 +1,6 @@
+@OnlineCourseReviews.Api_HostAddress = http://localhost:5273
+
+GET {{OnlineCourseReviews.Api_HostAddress}}/api/reviews
+Accept: application/json
+
+###
