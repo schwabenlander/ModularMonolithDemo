@@ -1,24 +1,21 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.DependencyInjection;
+﻿using FastEndpoints;
 
 namespace OnlineCourseReviews.Reviews;
 
-public static class ReviewEndpoints
+internal class GetCourseReviewsEndpoint(IReviewService reviewService) : EndpointWithoutRequest<GetCourseReviewsResponse>
 {
-    public static void MapReviewEndpoints(this IEndpointRouteBuilder endpoints)
+    public override void Configure()
     {
-        endpoints
-            .MapGet("/api/reviews", async (IReviewService reviewService) => await reviewService.GetCourseReviewsAsync())
-            .WithName("GetCourseReviews");
+        Get("/api/reviews");
+        AllowAnonymous();
     }
-}
 
-public static class ReviewServiceExtensions
-{
-    public static IServiceCollection AddReviewServices(this IServiceCollection services)
+    public override async Task HandleAsync(CancellationToken cancellationToken)
     {
-        services.AddScoped<IReviewService, ReviewService>();
-        return services;
+        var reviews = await reviewService.GetCourseReviewsAsync();
+        await SendAsync(new GetCourseReviewsResponse
+        {
+            Reviews = reviews
+        }, cancellation: cancellationToken);
     }
 }

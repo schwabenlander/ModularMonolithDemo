@@ -1,22 +1,14 @@
-var builder = WebApplication.CreateBuilder(args);
+using FastEndpoints;
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddFastEndpoints();
 
 // Add Module Services
 builder.Services.AddReviewServices();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
 app.UseHttpsRedirection();
-
-// Map Module Endpoints
-app.MapReviewEndpoints();
+app.UseFastEndpoints();
 
 app.Run();
