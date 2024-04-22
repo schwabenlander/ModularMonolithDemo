@@ -2,5 +2,5 @@ namespace OnlineCourseReviews.Reviews;
 
 internal interface IReviewService
 {
-    Task<List<CourseReviewDto>> GetCourseReviewsAsync();
+    Task<List<ReviewDto>> GetReviewsAsync();
 }

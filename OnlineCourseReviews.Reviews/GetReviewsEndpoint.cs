@@ -2,7 +2,7 @@
 
 namespace OnlineCourseReviews.Reviews;
 
-internal class GetCourseReviewsEndpoint(IReviewService reviewService) : EndpointWithoutRequest<GetCourseReviewsResponse>
+internal class GetReviewsEndpoint(IReviewService reviewService) : EndpointWithoutRequest<GetReviewsResponse>
 {
     public override void Configure()
     {
@@ -12,8 +12,8 @@ internal class GetCourseReviewsEndpoint(IReviewService reviewService) : Endpoint
 
     public override async Task HandleAsync(CancellationToken cancellationToken)
     {
-        var reviews = await reviewService.GetCourseReviewsAsync();
-        await SendAsync(new GetCourseReviewsResponse
+        var reviews = await reviewService.GetReviewsAsync();
+        await SendAsync(new GetReviewsResponse
         {
             Reviews = reviews
         }, cancellation: cancellationToken);

@@ -1,12 +1,14 @@
+using Ardalis.GuardClauses;
+
 namespace OnlineCourseReviews.Reviews;
 
-internal class CourseReview
+internal class Review
 {
     public Guid Id { get; private set; }
 
     public Guid CourseId { get; private set; }
     
-    public Guid UserId { get; private set; }
+    public string UserId { get; private set; }
     
     public string ReviewText { get; private set; }
     
@@ -26,17 +28,17 @@ internal class CourseReview
     
     public Guid ApprovedByUserId { get; private set; }
 
-    internal CourseReview(Guid courseId, Guid userId, string reviewText, int rating, bool isRecommended, 
+    internal Review(Guid courseId, string userId, string reviewText, int rating, bool isRecommended, 
         bool isCourseCompleted, decimal? pricePaid, string? discountCodeUsed)
     {
         Id = Guid.NewGuid();
-        CourseId = courseId;
-        UserId = userId;
-        ReviewText = reviewText;
-        Rating = rating;
+        CourseId = Guard.Against.Default(courseId);
+        UserId = Guard.Against.NullOrEmpty(userId);
+        ReviewText = Guard.Against.NullOrEmpty(reviewText);
+        Rating = Guard.Against.NegativeOrZero(rating);
         IsRecommended = isRecommended;
         IsCourseCompleted = isCourseCompleted;
-        PricePaid = pricePaid;
+        PricePaid = pricePaid.HasValue ? Guard.Against.NegativeOrZero(pricePaid.Value) : null;
         DiscountCodeUsed = discountCodeUsed;
         CreatedAt = DateTime.UtcNow;
     }
@@ -44,6 +46,6 @@ internal class CourseReview
     internal void ApproveReview(Guid approvedByUserId)
     {
         IsVisible = true;
-        ApprovedByUserId = approvedByUserId;
+        ApprovedByUserId = Guard.Against.Default(approvedByUserId);
     }
 }

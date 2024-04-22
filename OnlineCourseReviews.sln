@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCourseReviews.Reviews
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCourseReviews.Users", "OnlineCourseReviews.Users\OnlineCourseReviews.Users.csproj", "{3CA59CFB-7B66-4EF1-B145-15CF4148A785}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineCourseReviews.Courses", "OnlineCourseReviews.Courses\OnlineCourseReviews.Courses.csproj", "{6D062BB4-FF53-4AE2-AFA1-9CC0742D85DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{3CA59CFB-7B66-4EF1-B145-15CF4148A785}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CA59CFB-7B66-4EF1-B145-15CF4148A785}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CA59CFB-7B66-4EF1-B145-15CF4148A785}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D062BB4-FF53-4AE2-AFA1-9CC0742D85DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D062BB4-FF53-4AE2-AFA1-9CC0742D85DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D062BB4-FF53-4AE2-AFA1-9CC0742D85DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D062BB4-FF53-4AE2-AFA1-9CC0742D85DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
