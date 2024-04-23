@@ -10,5 +10,5 @@ internal interface IReviewService
     
     Task UpdateReviewAsync(ReviewDto reviewDto);
     
-    Task DeleteReviewAsync(ReviewDto reviewDto);
+    Task DeleteReviewAsync(Guid reviewId);
 }

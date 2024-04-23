@@ -59,9 +59,9 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
         await reviewRepository.SaveChangesAsync(review);
     }
 
-    public async Task DeleteReviewAsync(ReviewDto reviewDto)
+    public async Task DeleteReviewAsync(Guid reviewId)
     {
-        var review = await reviewRepository.GetByIdAsync(reviewDto.Id);
+        var review = await reviewRepository.GetByIdAsync(reviewId);
         
         await reviewRepository.DeleteAsync(review);
     }
