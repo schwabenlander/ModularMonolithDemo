@@ -25,8 +25,6 @@ internal class Review
     public DateTime CreatedAt { get; private set; }
     
     public bool IsVisible { get; private set; }
-    
-    public Guid ApprovedByUserId { get; private set; }
 
     internal Review(Guid courseId, string userId, string reviewText, int rating, bool isRecommended, 
         bool isCourseCompleted, decimal? pricePaid, string? discountCodeUsed)
@@ -43,9 +41,5 @@ internal class Review
         CreatedAt = DateTime.UtcNow;
     }
     
-    internal void ApproveReview(Guid approvedByUserId)
-    {
-        IsVisible = true;
-        ApprovedByUserId = Guard.Against.Default(approvedByUserId);
-    }
+    internal void ApproveReview() => IsVisible = true;
 }
