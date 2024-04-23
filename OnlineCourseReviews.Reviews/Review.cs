@@ -41,5 +41,18 @@ internal class Review
         CreatedAt = DateTime.UtcNow;
     }
     
+    internal void Update(string reviewText, int rating, bool isRecommended, bool isCourseCompleted, 
+        decimal? pricePaid, string? discountCodeUsed)
+    {
+        ReviewText = Guard.Against.NullOrEmpty(reviewText);
+        Rating = Guard.Against.NegativeOrZero(rating);
+        IsRecommended = isRecommended;
+        IsCourseCompleted = isCourseCompleted;
+        PricePaid = pricePaid.HasValue ? Guard.Against.NegativeOrZero(pricePaid.Value) : null;
+        DiscountCodeUsed = discountCodeUsed;
+    }
+    
     internal void ApproveReview() => IsVisible = true;
+    
+    internal void HideReview() => IsVisible = false;
 }

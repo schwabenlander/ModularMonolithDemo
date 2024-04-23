@@ -6,7 +6,7 @@ internal interface IReviewRepository : IReadOnlyReviewRepository
     
     Task SaveChangesAsync(Review review);
     
-    Task DeleteAsync(Guid reviewId);
+    Task DeleteAsync(Review review);
 }
 
 internal interface IReadOnlyReviewRepository
