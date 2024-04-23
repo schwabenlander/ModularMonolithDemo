@@ -13,5 +13,5 @@ internal interface IReadOnlyReviewRepository
 {
     Task<List<Review>> GetAllAsync();
     
-    Task<Review> GetByIdAsync(Guid reviewId);
+    Task<Review?> GetByIdAsync(Guid reviewId);
 }

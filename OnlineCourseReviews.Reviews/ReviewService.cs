@@ -1,3 +1,5 @@
+using Ardalis.GuardClauses;
+
 namespace OnlineCourseReviews.Reviews;
 
 internal class ReviewService(IReviewRepository reviewRepository) : IReviewService
@@ -22,7 +24,13 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
     public async Task<ReviewDto> GetReviewByIdAsync(Guid reviewId)
     {
         var review = await reviewRepository.GetByIdAsync(reviewId);
-        var reviewDto = new ReviewDto(review.Id,
+        
+        if (review is null)
+        {
+            throw new NotFoundException(reviewId.ToString(), nameof(review));
+        }
+        
+        var reviewDto = new ReviewDto(reviewId,
             review.CourseId,
             review.UserId,
             review.CourseId.ToString(),
@@ -38,6 +46,8 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
 
     public async Task AddReviewAsync(ReviewDto reviewDto)
     {
+        // TODO: Add validation for reviewDto properties
+        
         var review = new Review(reviewDto.CourseId,
             reviewDto.UserId,
             reviewDto.ReviewText,
@@ -52,7 +62,15 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
 
     public async Task UpdateReviewAsync(ReviewDto reviewDto)
     {
+        // TODO: Add validation for reviewDto properties
+        
         var review = await reviewRepository.GetByIdAsync(reviewDto.Id);
+        
+        if (review is null)
+        {
+            throw new NotFoundException(reviewDto.Id.ToString(), nameof(reviewDto));
+        }
+        
         review.Update(reviewDto.ReviewText, reviewDto.Rating, reviewDto.IsRecommended, reviewDto.IsCourseCompleted,
             reviewDto.PricePaid, reviewDto.DiscountCodeUsed);
         
@@ -62,6 +80,11 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
     public async Task DeleteReviewAsync(Guid reviewId)
     {
         var review = await reviewRepository.GetByIdAsync(reviewId);
+
+        if (review is null)
+        {
+            throw new NotFoundException(reviewId.ToString(), nameof(review));
+        }
         
         await reviewRepository.DeleteAsync(review);
     }
