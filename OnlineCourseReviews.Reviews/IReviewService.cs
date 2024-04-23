@@ -6,11 +6,9 @@ internal interface IReviewService
     
     Task<ReviewDto> GetReviewByIdAsync(Guid reviewId);
     
-    Task AddReviewAsync(Guid courseId, string userId, string reviewText, int rating, bool isRecommended, 
-        bool isCourseCompleted, decimal? pricePaid, string? discountCodeUsed);
+    Task AddReviewAsync(ReviewDto reviewDto);
     
-    Task UpdateReviewAsync(Guid reviewId, string reviewText, int rating, bool isRecommended, 
-        bool isCourseCompleted, decimal? pricePaid, string? discountCodeUsed);
+    Task UpdateReviewAsync(ReviewDto reviewDto);
     
-    Task DeleteReviewAsync(Guid reviewId);
+    Task DeleteReviewAsync(ReviewDto reviewDto);
 }
