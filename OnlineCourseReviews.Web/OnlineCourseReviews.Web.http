@@ -25,3 +25,11 @@ Content-Type: application/json
   "pricePaid": 40.000000,
   "discountCodeUsed": "DISCOUNT7"
 }
+
+###
+
+@ReviewToDeleteId=365f3da9-c9d8-4964-8bf4-18401c0a48ac
+DELETE {{OnlineCourseReviews.Api_HostAddress}}/api/reviews/{{ReviewToDeleteId}}
+Accept: application/json
+
+###
