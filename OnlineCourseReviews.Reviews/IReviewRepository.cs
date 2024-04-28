@@ -4,7 +4,7 @@ internal interface IReviewRepository : IReadOnlyReviewRepository
 {
     Task AddAsync(Review review);
     
-    Task SaveChangesAsync(Review review);
+    Task UpdateAsync(Review review);
     
     Task DeleteAsync(Review review);
 }

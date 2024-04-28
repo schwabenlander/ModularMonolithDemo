@@ -10,3 +10,18 @@ GET {{OnlineCourseReviews.Api_HostAddress}}/api/reviews/{{ReviewId}}
 Accept: application/json
 
 ###
+
+POST {{OnlineCourseReviews.Api_HostAddress}}/api/reviews
+Accept: application/json
+Content-Type: application/json
+
+{
+  "courseId": "00000000-0000-0000-0000-00000000000c",
+  "userId": "mariabaqir@hotmail.com",
+  "reviewText": "Enlightening course!",
+  "rating": 5,
+  "isRecommended": true,
+  "isCourseCompleted": true,
+  "pricePaid": 40.000000,
+  "discountCodeUsed": "DISCOUNT7"
+}

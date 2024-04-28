@@ -48,7 +48,9 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
     {
         // TODO: Add validation for reviewDto properties
         
-        var review = new Review(reviewDto.CourseId,
+        var review = new Review(
+            reviewDto.Id ?? Guid.NewGuid(),
+            reviewDto.CourseId,
             reviewDto.UserId,
             reviewDto.ReviewText,
             reviewDto.Rating,
@@ -79,7 +81,7 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
         review.Update(reviewDto.ReviewText, reviewDto.Rating, reviewDto.IsRecommended, reviewDto.IsCourseCompleted,
             reviewDto.PricePaid, reviewDto.DiscountCodeUsed);
         
-        await reviewRepository.SaveChangesAsync(review);
+        await reviewRepository.UpdateAsync(review);
     }
 
     public async Task DeleteReviewAsync(Guid reviewId)

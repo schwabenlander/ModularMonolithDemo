@@ -26,10 +26,10 @@ internal class Review
     
     public bool IsVisible { get; private set; }
 
-    internal Review(Guid courseId, string userId, string reviewText, int rating, bool isRecommended, 
+    internal Review(Guid id, Guid courseId, string userId, string reviewText, int rating, bool isRecommended, 
         bool isCourseCompleted, decimal? pricePaid, string? discountCodeUsed)
     {
-        Id = Guid.NewGuid();
+        Id = Guard.Against.Default(id);
         CourseId = Guard.Against.Default(courseId);
         UserId = Guard.Against.NullOrEmpty(userId);
         ReviewText = Guard.Against.NullOrEmpty(reviewText);
