@@ -1,9 +1,9 @@
 namespace OnlineCourseReviews.Reviews;
 
-public record ReviewDto(Guid Id, 
+public record ReviewDto(Guid? Id, 
     Guid CourseId,
     string UserId,
-    string CourseName, 
+    string? CourseName, 
     string ReviewText, 
     int Rating, 
     bool IsRecommended, 

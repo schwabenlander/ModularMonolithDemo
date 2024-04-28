@@ -4,3 +4,9 @@ GET {{OnlineCourseReviews.Api_HostAddress}}/api/reviews
 Accept: application/json
 
 ###
+
+@ReviewId=438e15fd-5920-4d66-9ff6-5f61bcd2598d
+GET {{OnlineCourseReviews.Api_HostAddress}}/api/reviews/{{ReviewId}}
+Accept: application/json
+
+###

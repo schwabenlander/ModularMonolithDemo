@@ -4,7 +4,7 @@ internal interface IReviewService
 {
     Task<List<ReviewDto>> GetReviewsAsync();
     
-    Task<ReviewDto> GetReviewByIdAsync(Guid reviewId);
+    Task<ReviewDto?> GetReviewByIdAsync(Guid reviewId);
     
     Task AddReviewAsync(ReviewDto reviewDto);
     

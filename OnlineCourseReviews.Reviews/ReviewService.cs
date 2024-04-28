@@ -21,7 +21,7 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
         return reviewDtos;
     }
 
-    public async Task<ReviewDto> GetReviewByIdAsync(Guid reviewId)
+    public async Task<ReviewDto?> GetReviewByIdAsync(Guid reviewId)
     {
         var review = await reviewRepository.GetByIdAsync(reviewId);
         
@@ -64,7 +64,12 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
     {
         // TODO: Add validation for reviewDto properties
         
-        var review = await reviewRepository.GetByIdAsync(reviewDto.Id);
+        if (reviewDto.Id is null)
+        {
+            throw new ArgumentNullException(nameof(reviewDto.Id));
+        }
+        
+        var review = await reviewRepository.GetByIdAsync(reviewDto.Id.Value);
         
         if (review is null)
         {
