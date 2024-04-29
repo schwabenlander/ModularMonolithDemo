@@ -2,9 +2,9 @@ namespace OnlineCourseReviews.Reviews;
 
 internal interface IReviewRepository : IReadOnlyReviewRepository
 {
-    Task AddAsync(Review review);
+    Task<Review> AddAsync(Review review);
     
-    Task UpdateAsync(Review review);
+    Task<Review> UpdateAsync(Review review);
     
     Task DeleteAsync(Review review);
 }

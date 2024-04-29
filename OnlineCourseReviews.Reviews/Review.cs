@@ -55,4 +55,16 @@ internal class Review
     internal void ApproveReview() => IsVisible = true;
     
     internal void HideReview() => IsVisible = false;
+    
+    internal ReviewDto ToDto() =>
+        new ReviewDto(Id,
+            CourseId,
+            UserId,
+            CourseId.ToString(),
+            ReviewText,
+            Rating,
+            IsRecommended, 
+            IsCourseCompleted, 
+            PricePaid, 
+            DiscountCodeUsed);
 }

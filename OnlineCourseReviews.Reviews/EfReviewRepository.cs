@@ -14,16 +14,20 @@ internal class EfReviewRepository(ReviewDbContext dbContext) : IReviewRepository
         return await dbContext.Reviews.FindAsync(reviewId);
     }
 
-    public async Task AddAsync(Review review)
+    public async Task<Review> AddAsync(Review review)
     {
-        await dbContext.AddAsync(review);
+        var reviewEntity = await dbContext.AddAsync(review);
         await dbContext.SaveChangesAsync();
+        
+        return reviewEntity.Entity;
     }
 
-    public async Task UpdateAsync(Review review)
+    public async Task<Review> UpdateAsync(Review review)
     {
-        dbContext.Update(review);
+        var reviewEntity = dbContext.Update(review);
         await dbContext.SaveChangesAsync();
+        
+        return reviewEntity.Entity;
     }
 
     public async Task DeleteAsync(Review review)

@@ -23,7 +23,7 @@ internal class CreateReviewEndpoint(IReviewService reviewService) : Endpoint<Cre
             request.PricePaid,
             request.DiscountCodeUsed);
         
-        await reviewService.AddReviewAsync(review);
+        review = await reviewService.AddReviewAsync(review);
         await SendCreatedAtAsync<GetReviewByIdEndpoint>(new { Id = review.Id }, 
             review, cancellation: cancellationToken);
     }

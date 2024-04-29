@@ -27,7 +27,7 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
         
         if (review is null)
         {
-            throw new NotFoundException(reviewId.ToString(), nameof(review));
+            return null;
         }
         
         var reviewDto = new ReviewDto(reviewId,
@@ -44,7 +44,7 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
         return reviewDto;
     }
 
-    public async Task AddReviewAsync(ReviewDto reviewDto)
+    public async Task<ReviewDto> AddReviewAsync(ReviewDto reviewDto)
     {
         // TODO: Add validation for reviewDto properties
         
@@ -59,10 +59,12 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
             reviewDto.PricePaid,
             reviewDto.DiscountCodeUsed);
         
-        await reviewRepository.AddAsync(review);
+        var addedReview = await reviewRepository.AddAsync(review);
+
+        return addedReview.ToDto();
     }
 
-    public async Task UpdateReviewAsync(ReviewDto reviewDto)
+    public async Task<ReviewDto> UpdateReviewAsync(ReviewDto reviewDto)
     {
         // TODO: Add validation for reviewDto properties
         
@@ -75,13 +77,20 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
         
         if (review is null)
         {
-            throw new NotFoundException(reviewDto.Id.ToString(), nameof(reviewDto));
+            throw new NotFoundException(reviewDto.Id.ToString()!, nameof(reviewDto));
         }
         
-        review.Update(reviewDto.ReviewText, reviewDto.Rating, reviewDto.IsRecommended, reviewDto.IsCourseCompleted,
-            reviewDto.PricePaid, reviewDto.DiscountCodeUsed);
+        review.Update(
+            reviewDto.ReviewText, 
+            reviewDto.Rating, 
+            reviewDto.IsRecommended, 
+            reviewDto.IsCourseCompleted,
+            reviewDto.PricePaid, 
+            reviewDto.DiscountCodeUsed);
         
-        await reviewRepository.UpdateAsync(review);
+        var updatedReview = await reviewRepository.UpdateAsync(review);
+
+        return updatedReview.ToDto();
     }
 
     public async Task DeleteReviewAsync(Guid reviewId)
