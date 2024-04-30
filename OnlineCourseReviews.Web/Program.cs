@@ -13,3 +13,9 @@ app.UseHttpsRedirection();
 app.UseFastEndpoints();
 
 app.Run();
+
+// Needed for tests
+public partial class Program
+{
+    
+}
