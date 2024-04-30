@@ -1,6 +1,8 @@
 ﻿using FastEndpoints;
+using OnlineCourseReviews.Reviews.Dtos;
+using OnlineCourseReviews.Reviews.Services;
 
-namespace OnlineCourseReviews.Reviews;
+namespace OnlineCourseReviews.Reviews.ReviewEndpoints;
 
 internal class GetReviewsEndpoint(IReviewService reviewService) : EndpointWithoutRequest<GetReviewsResponse>
 {
@@ -18,4 +20,9 @@ internal class GetReviewsEndpoint(IReviewService reviewService) : EndpointWithou
             Reviews = reviews
         }, cancellation: cancellationToken);
     }
+}
+
+public class GetReviewsResponse
+{
+    public List<ReviewDto> Reviews { get; set; } = new();
 }

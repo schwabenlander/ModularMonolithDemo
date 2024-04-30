@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using OnlineCourseReviews.Reviews.Data;
+using OnlineCourseReviews.Reviews.Models;
 
-namespace OnlineCourseReviews.Reviews;
+namespace OnlineCourseReviews.Reviews.Repositories;
 
 internal class EfReviewRepository(ReviewDbContext dbContext) : IReviewRepository
 {

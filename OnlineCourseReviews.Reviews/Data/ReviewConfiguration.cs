@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using OnlineCourseReviews.Reviews.Models;
 
-namespace OnlineCourseReviews.Reviews;
+namespace OnlineCourseReviews.Reviews.Data;
 
 internal class ReviewConfiguration : IEntityTypeConfiguration<Review>
 {

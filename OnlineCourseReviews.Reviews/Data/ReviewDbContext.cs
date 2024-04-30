@@ -1,7 +1,8 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
+using OnlineCourseReviews.Reviews.Models;
 
-namespace OnlineCourseReviews.Reviews;
+namespace OnlineCourseReviews.Reviews.Data;
 
 public class ReviewDbContext : DbContext
 {

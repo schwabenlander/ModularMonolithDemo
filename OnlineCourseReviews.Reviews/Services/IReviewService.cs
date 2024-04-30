@@ -1,4 +1,6 @@
-namespace OnlineCourseReviews.Reviews;
+using OnlineCourseReviews.Reviews.Dtos;
+
+namespace OnlineCourseReviews.Reviews.Services;
 
 internal interface IReviewService
 {

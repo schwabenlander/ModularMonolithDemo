@@ -1,6 +1,9 @@
 using Ardalis.GuardClauses;
+using OnlineCourseReviews.Reviews.Dtos;
+using OnlineCourseReviews.Reviews.Models;
+using OnlineCourseReviews.Reviews.Repositories;
 
-namespace OnlineCourseReviews.Reviews;
+namespace OnlineCourseReviews.Reviews.Services;
 
 internal class ReviewService(IReviewRepository reviewRepository) : IReviewService
 {

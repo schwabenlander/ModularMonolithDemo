@@ -1,8 +1,10 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OnlineCourseReviews.Reviews.Data;
+using OnlineCourseReviews.Reviews.Repositories;
 
-namespace OnlineCourseReviews.Reviews;
+namespace OnlineCourseReviews.Reviews.Services;
 
 public static class ReviewServiceExtensions
 {

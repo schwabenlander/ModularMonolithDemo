@@ -1,4 +1,5 @@
 using FastEndpoints;
+using OnlineCourseReviews.Reviews.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddFastEndpoints();

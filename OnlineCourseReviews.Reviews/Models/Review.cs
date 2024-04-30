@@ -1,6 +1,7 @@
 using Ardalis.GuardClauses;
+using OnlineCourseReviews.Reviews.Dtos;
 
-namespace OnlineCourseReviews.Reviews;
+namespace OnlineCourseReviews.Reviews.Models;
 
 internal class Review
 {

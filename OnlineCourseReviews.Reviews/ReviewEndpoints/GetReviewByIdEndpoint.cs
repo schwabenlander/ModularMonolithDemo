@@ -1,6 +1,8 @@
 using FastEndpoints;
+using OnlineCourseReviews.Reviews.Dtos;
+using OnlineCourseReviews.Reviews.Services;
 
-namespace OnlineCourseReviews.Reviews;
+namespace OnlineCourseReviews.Reviews.ReviewEndpoints;
 
 internal class GetReviewByIdEndpoint(IReviewService reviewService) : Endpoint<GetReviewByIdRequest, ReviewDto>
 {
@@ -24,4 +26,4 @@ internal class GetReviewByIdEndpoint(IReviewService reviewService) : Endpoint<Ge
     }
 }
 
-public record GetReviewByIdRequest(Guid Id);
+internal record GetReviewByIdRequest(Guid Id);

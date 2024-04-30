@@ -1,4 +1,4 @@
-namespace OnlineCourseReviews.Reviews;
+namespace OnlineCourseReviews.Reviews.Data;
 
 public static class DataSchemaConstants
 {

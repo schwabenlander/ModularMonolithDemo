@@ -1,6 +1,8 @@
 using FastEndpoints;
+using OnlineCourseReviews.Reviews.Dtos;
+using OnlineCourseReviews.Reviews.Services;
 
-namespace OnlineCourseReviews.Reviews;
+namespace OnlineCourseReviews.Reviews.ReviewEndpoints;
 
 internal class UpdateReviewEndpoint(IReviewService reviewService) : Endpoint<UpdateReviewRequest, ReviewDto>
 {
@@ -33,4 +35,25 @@ internal class UpdateReviewEndpoint(IReviewService reviewService) : Endpoint<Upd
         updatedReview = await reviewService.UpdateReviewAsync(updatedReview);
         await SendOkAsync(updatedReview, cancellation: cancellationToken);
     }
+}
+
+internal class UpdateReviewRequest
+{
+    public required Guid Id { get; set; }
+    
+    public required Guid CourseId { get; set; }
+    
+    public required string UserId { get; set; }
+    
+    public required string ReviewText { get; set; }
+    
+    public required int Rating { get; set; }
+    
+    public bool IsRecommended { get; set; }
+    
+    public bool IsCourseCompleted { get; set; }
+    
+    public decimal? PricePaid { get; set; }
+    
+    public string? DiscountCodeUsed { get; set; }
 }

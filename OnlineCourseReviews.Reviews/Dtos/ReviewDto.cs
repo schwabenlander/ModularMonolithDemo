@@ -1,4 +1,4 @@
-namespace OnlineCourseReviews.Reviews;
+namespace OnlineCourseReviews.Reviews.Dtos;
 
 public record ReviewDto(Guid? Id, 
     Guid CourseId,

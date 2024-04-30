@@ -1,4 +1,6 @@
-namespace OnlineCourseReviews.Reviews;
+using OnlineCourseReviews.Reviews.Models;
+
+namespace OnlineCourseReviews.Reviews.Repositories;
 
 internal interface IReviewRepository : IReadOnlyReviewRepository
 {
