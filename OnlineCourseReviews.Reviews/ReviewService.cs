@@ -104,4 +104,10 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
         
         await reviewRepository.DeleteAsync(review);
     }
+
+    public async Task<bool> ReviewExistsAsync(Guid reviewId)
+    {
+        var review = await reviewRepository.GetByIdAsync(reviewId);
+        return review is not null;
+    }
 }

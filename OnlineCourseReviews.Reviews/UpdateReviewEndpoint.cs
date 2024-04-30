@@ -12,15 +12,14 @@ internal class UpdateReviewEndpoint(IReviewService reviewService) : Endpoint<Upd
     
     public override async Task HandleAsync(UpdateReviewRequest request, CancellationToken cancellationToken)
     {
-        var review = await reviewService.GetReviewByIdAsync(request.Id);
-        
-        if (review is null)
+        if (!await reviewService.ReviewExistsAsync(request.Id))
         {
             await SendNotFoundAsync(cancellation: cancellationToken);
             return;
         }
         
-        var updatedReview = new ReviewDto(review.Id,
+        var updatedReview = new ReviewDto(
+            request.Id,
             request.CourseId,
             request.UserId,
             null,

@@ -12,9 +12,7 @@ internal class DeleteReviewEndpoint(IReviewService reviewService) : Endpoint<Del
     
     public override async Task HandleAsync(DeleteReviewRequest request, CancellationToken cancellationToken)
     {
-        var review = await reviewService.GetReviewByIdAsync(request.Id);
-        
-        if (review is null)
+        if (!await reviewService.ReviewExistsAsync(request.Id))
         {
             await SendNotFoundAsync(cancellation: cancellationToken);
             return;
