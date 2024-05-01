@@ -5,14 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using OnlineCourseReviews.Reviews;
+using OnlineCourseReviews.Reviews.Data;
 
 #nullable disable
 
 namespace OnlineCourseReviews.Reviews.Data.Migrations
 {
     [DbContext(typeof(ReviewDbContext))]
-    [Migration("20240426025100_Initial")]
+    [Migration("20240501022104_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -26,7 +26,7 @@ namespace OnlineCourseReviews.Reviews.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("OnlineCourseReviews.Reviews.Review", b =>
+            modelBuilder.Entity("OnlineCourseReviews.Reviews.Models.Review", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -74,9 +74,9 @@ namespace OnlineCourseReviews.Reviews.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("181cf613-44f4-48c5-baac-5c97fbb74a15"),
+                            Id = new Guid("00000000-0000-0000-0000-000000000001"),
                             CourseId = new Guid("00000000-0000-0000-0000-00000000000c"),
-                            CreatedAt = new DateTime(2024, 4, 26, 2, 51, 0, 385, DateTimeKind.Utc).AddTicks(3000),
+                            CreatedAt = new DateTime(2024, 5, 1, 2, 21, 4, 686, DateTimeKind.Utc).AddTicks(720),
                             IsCourseCompleted = true,
                             IsRecommended = true,
                             IsVisible = false,
@@ -87,9 +87,9 @@ namespace OnlineCourseReviews.Reviews.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("438e15fd-5920-4d66-9ff6-5f61bcd2598d"),
+                            Id = new Guid("00000000-0000-0000-0000-000000000002"),
                             CourseId = new Guid("00000000-0000-0000-0000-00000000000c"),
-                            CreatedAt = new DateTime(2024, 4, 26, 2, 51, 0, 385, DateTimeKind.Utc).AddTicks(3010),
+                            CreatedAt = new DateTime(2024, 5, 1, 2, 21, 4, 686, DateTimeKind.Utc).AddTicks(730),
                             DiscountCodeUsed = "DISCOUNT1",
                             IsCourseCompleted = false,
                             IsRecommended = false,
@@ -101,9 +101,9 @@ namespace OnlineCourseReviews.Reviews.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("24fe50eb-871f-45af-bed9-8e2b39a6299c"),
+                            Id = new Guid("00000000-0000-0000-0000-000000000003"),
                             CourseId = new Guid("00000000-0000-0000-0000-00000000000c"),
-                            CreatedAt = new DateTime(2024, 4, 26, 2, 51, 0, 385, DateTimeKind.Utc).AddTicks(3020),
+                            CreatedAt = new DateTime(2024, 5, 1, 2, 21, 4, 686, DateTimeKind.Utc).AddTicks(750),
                             IsCourseCompleted = true,
                             IsRecommended = true,
                             IsVisible = false,
@@ -114,9 +114,9 @@ namespace OnlineCourseReviews.Reviews.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ad5a14c5-36f1-4c0f-b33b-1e5f32d9ca41"),
+                            Id = new Guid("00000000-0000-0000-0000-000000000004"),
                             CourseId = new Guid("00000000-0000-0000-0000-00000000000c"),
-                            CreatedAt = new DateTime(2024, 4, 26, 2, 51, 0, 385, DateTimeKind.Utc).AddTicks(3020),
+                            CreatedAt = new DateTime(2024, 5, 1, 2, 21, 4, 686, DateTimeKind.Utc).AddTicks(750),
                             DiscountCodeUsed = "DISCOUNT2",
                             IsCourseCompleted = false,
                             IsRecommended = false,

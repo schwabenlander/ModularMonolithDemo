@@ -44,10 +44,10 @@ namespace OnlineCourseReviews.Reviews.Data.Migrations
                 columns: new[] { "Id", "CourseId", "CreatedAt", "DiscountCodeUsed", "IsCourseCompleted", "IsRecommended", "IsVisible", "PricePaid", "Rating", "ReviewText", "UserId" },
                 values: new object[,]
                 {
-                    { new Guid("181cf613-44f4-48c5-baac-5c97fbb74a15"), new Guid("00000000-0000-0000-0000-00000000000c"), new DateTime(2024, 4, 26, 2, 51, 0, 385, DateTimeKind.Utc).AddTicks(3000), null, true, true, false, 9.99m, 5, "Great course!", "sean@schwabenlander.com" },
-                    { new Guid("24fe50eb-871f-45af-bed9-8e2b39a6299c"), new Guid("00000000-0000-0000-0000-00000000000c"), new DateTime(2024, 4, 26, 2, 51, 0, 385, DateTimeKind.Utc).AddTicks(3020), null, true, true, false, 44.00m, 4, "I learned a lot.", "sean@schwabenlander.com" },
-                    { new Guid("438e15fd-5920-4d66-9ff6-5f61bcd2598d"), new Guid("00000000-0000-0000-0000-00000000000c"), new DateTime(2024, 4, 26, 2, 51, 0, 385, DateTimeKind.Utc).AddTicks(3010), "DISCOUNT1", false, false, false, 27.00m, 1, "Not worth the money.", "sean@schwabenlander.com" },
-                    { new Guid("ad5a14c5-36f1-4c0f-b33b-1e5f32d9ca41"), new Guid("00000000-0000-0000-0000-00000000000c"), new DateTime(2024, 4, 26, 2, 51, 0, 385, DateTimeKind.Utc).AddTicks(3020), "DISCOUNT2", false, false, false, 14.75m, 2, "I didn't learn anything.", "sean@schwabenlander.com" }
+                    { new Guid("00000000-0000-0000-0000-000000000001"), new Guid("00000000-0000-0000-0000-00000000000c"), new DateTime(2024, 5, 1, 2, 21, 4, 686, DateTimeKind.Utc).AddTicks(720), null, true, true, false, 9.99m, 5, "Great course!", "sean@schwabenlander.com" },
+                    { new Guid("00000000-0000-0000-0000-000000000002"), new Guid("00000000-0000-0000-0000-00000000000c"), new DateTime(2024, 5, 1, 2, 21, 4, 686, DateTimeKind.Utc).AddTicks(730), "DISCOUNT1", false, false, false, 27.00m, 1, "Not worth the money.", "sean@schwabenlander.com" },
+                    { new Guid("00000000-0000-0000-0000-000000000003"), new Guid("00000000-0000-0000-0000-00000000000c"), new DateTime(2024, 5, 1, 2, 21, 4, 686, DateTimeKind.Utc).AddTicks(750), null, true, true, false, 44.00m, 4, "I learned a lot.", "sean@schwabenlander.com" },
+                    { new Guid("00000000-0000-0000-0000-000000000004"), new Guid("00000000-0000-0000-0000-00000000000c"), new DateTime(2024, 5, 1, 2, 21, 4, 686, DateTimeKind.Utc).AddTicks(750), "DISCOUNT2", false, false, false, 14.75m, 2, "I didn't learn anything.", "sean@schwabenlander.com" }
                 });
         }
 
