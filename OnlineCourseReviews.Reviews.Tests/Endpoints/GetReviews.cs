@@ -3,11 +3,12 @@ using FastEndpoints.Testing;
 using FluentAssertions;
 using OnlineCourseReviews.Reviews.Dtos;
 using OnlineCourseReviews.Reviews.ReviewEndpoints;
+using OnlineCourseReviews.Reviews.ReviewEndpoints.Get;
 using Xunit.Abstractions;
 
 namespace OnlineCourseReviews.Reviews.Tests.Endpoints;
 
-public class GetReviews(Fixture fixture, ITestOutputHelper outputHelper) : TestBase<Fixture>
+public class GetReviews(Fixture fixture) : TestBase<Fixture>
 {
     [Fact]
     public async Task GetReviews_Returns_Success_Status_Code()

@@ -28,7 +28,7 @@ Content-Type: application/json
 
 ###
 
-@ReviewToUpdateId=9cc01b65-c4d6-4ee5-83a0-8362c7db8884
+@ReviewToUpdateId=4bcaf969-ece1-42bf-9904-6ac0ed7426cd
 PUT {{OnlineCourseReviews.Api_HostAddress}}/api/reviews/{{ReviewToUpdateId}}
 Accept: application/json
 Content-Type: application/json
@@ -42,7 +42,7 @@ Content-Type: application/json
   "rating": 4,
   "isRecommended": true,
   "isCourseCompleted": true,
-  "pricePaid": 50.000000,
+  "pricePaid": -50.000000,
   "discountCodeUsed": "DISCOUNT5"
 }
 

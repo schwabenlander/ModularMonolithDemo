@@ -1,7 +1,7 @@
 using FastEndpoints;
 using OnlineCourseReviews.Reviews.Services;
 
-namespace OnlineCourseReviews.Reviews.ReviewEndpoints;
+namespace OnlineCourseReviews.Reviews.ReviewEndpoints.Delete;
 
 internal class DeleteReviewEndpoint(IReviewService reviewService) : Endpoint<DeleteReviewRequest>
 {
@@ -23,5 +23,3 @@ internal class DeleteReviewEndpoint(IReviewService reviewService) : Endpoint<Del
         await SendNoContentAsync(cancellation: cancellationToken);
     }
 }
-
-internal record DeleteReviewRequest(Guid Id);

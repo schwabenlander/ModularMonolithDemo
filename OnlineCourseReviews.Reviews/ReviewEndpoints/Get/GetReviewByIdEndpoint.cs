@@ -2,7 +2,7 @@ using FastEndpoints;
 using OnlineCourseReviews.Reviews.Dtos;
 using OnlineCourseReviews.Reviews.Services;
 
-namespace OnlineCourseReviews.Reviews.ReviewEndpoints;
+namespace OnlineCourseReviews.Reviews.ReviewEndpoints.Get;
 
 internal class GetReviewByIdEndpoint(IReviewService reviewService) : Endpoint<GetReviewByIdRequest, ReviewDto>
 {
@@ -25,5 +25,3 @@ internal class GetReviewByIdEndpoint(IReviewService reviewService) : Endpoint<Ge
         await SendAsync(review, cancellation:cancellationToken);
     }
 }
-
-internal record GetReviewByIdRequest(Guid Id);
