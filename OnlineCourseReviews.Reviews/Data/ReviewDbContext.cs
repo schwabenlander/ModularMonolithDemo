@@ -8,7 +8,7 @@ public class ReviewDbContext : DbContext
 {
     internal DbSet<Review> Reviews { get; set; }
 
-    public ReviewDbContext(DbContextOptions options) : base(options)
+    public ReviewDbContext(DbContextOptions<ReviewDbContext> options) : base(options)
     {
         
     }

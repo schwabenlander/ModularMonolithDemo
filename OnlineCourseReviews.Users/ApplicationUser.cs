@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace OnlineCourseReviews.Users;
 
-public class ApplicationUser
+public class ApplicationUser : IdentityUser<string>
 {
 }
