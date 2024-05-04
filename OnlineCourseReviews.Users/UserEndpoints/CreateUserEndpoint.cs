@@ -17,6 +17,7 @@ public class CreateUserEndpoint(UserManager<ApplicationUser> userManager) : Endp
     {
         var newUser = new ApplicationUser()
         {
+            Id = request.EmailAddress,
             Email = request.EmailAddress,
             UserName = request.EmailAddress,
             FirstName = request.FirstName,
