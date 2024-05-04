@@ -1,4 +1,4 @@
-@OnlineCourseReviews.Api_HostAddress = http://localhost:5273
+@OnlineCourseReviews.Api_HostAddress = https://localhost:7112
 
 GET {{OnlineCourseReviews.Api_HostAddress}}/api/reviews
 Accept: application/json
@@ -51,5 +51,18 @@ Content-Type: application/json
 @ReviewToDeleteId=ae549ef8-d144-4cca-a574-961655dc96e4
 DELETE {{OnlineCourseReviews.Api_HostAddress}}/api/reviews/{{ReviewToDeleteId}}
 Accept: application/json
+
+###
+
+POST {{OnlineCourseReviews.Api_HostAddress}}/api/users
+Accept: application/json
+Content-Type: application/json
+
+{
+  "fistName": "Sean",
+  "lastName": "Schwabenlander",
+  "email": "sean@test.com",
+  "password": "P@ssw0rd"
+}
 
 ###

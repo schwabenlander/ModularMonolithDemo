@@ -24,7 +24,6 @@ builder.Services.AddReviewServices(builder.Configuration, logger);
 
 var app = builder.Build();
 
-app.UseHttpsRedirection();
 app.UseFastEndpoints();
 
 app.Run();
