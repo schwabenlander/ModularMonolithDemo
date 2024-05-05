@@ -1,4 +1,6 @@
 using FastEndpoints;
+using FastEndpoints.Security;
+using FastEndpoints.Swagger;
 using OnlineCourseReviews.Reviews.Services;
 using OnlineCourseReviews.Users;
 using Serilog;
@@ -16,7 +18,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog((_, config) => 
     config.ReadFrom.Configuration(builder.Configuration));
 
-builder.Services.AddFastEndpoints();
+builder.Services
+    .AddAuthenticationJwtBearer(s => s.SigningKey = builder.Configuration["Auth:JwtSecret"])
+    .AddAuthorization()
+    .AddFastEndpoints()
+    .SwaggerDocument();
 
 // Add Module Services
 builder.Services.AddUserModuleServices(builder.Configuration, logger);
@@ -24,7 +30,11 @@ builder.Services.AddReviewServices(builder.Configuration, logger);
 
 var app = builder.Build();
 
-app.UseFastEndpoints();
+app
+    .UseAuthentication()
+    .UseAuthorization()
+    .UseFastEndpoints()
+    .UseSwaggerGen();
 
 app.Run();
 

@@ -66,3 +66,16 @@ Content-Type: application/json
 }
 
 ###
+
+POST {{OnlineCourseReviews.Api_HostAddress}}/api/users/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "emailAddress": "sean@test.com",
+  "password": "P@ssw0rd"
+}
+
+###
+
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJzZWFuQHRlc3QuY29tIiwiZXhwIjoxNzE1MDIxMDEzLCJpYXQiOjE3MTQ5MzQ2MTMsIm5iZiI6MTcxNDkzNDYxM30.ZyUb_a-qf2XQFDPUJuvewBJyA9SbPHvUP5Ip_bg_Xt8
