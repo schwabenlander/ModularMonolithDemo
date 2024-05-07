@@ -102,7 +102,7 @@ internal class ReviewService(IReviewRepository reviewRepository) : IReviewServic
 
         if (review is null)
         {
-            throw new NotFoundException(reviewId.ToString(), nameof(review));
+            throw new NotFoundException(reviewId.ToString(), nameof(reviewId));
         }
         
         await reviewRepository.DeleteAsync(review);

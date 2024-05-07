@@ -1,4 +1,5 @@
 using Ardalis.GuardClauses;
+using OnlineCourseReviews.Courses.Dtos;
 
 namespace OnlineCourseReviews.Courses.Models;
 
@@ -34,5 +35,25 @@ internal class Course
         CreatedAt = DateTime.UtcNow;
     }
     
-    internal void PublishCourse() => IsVisible = true;
+    internal void ShowCourse() => IsVisible = true;
+    
+    internal void HideCourse() => IsVisible = false;
+    
+    internal void Update(string title, string description, string instructor, decimal price, string url)
+    {
+        Title = Guard.Against.NullOrEmpty(title);
+        Description = Guard.Against.NullOrEmpty(description);
+        Instructor = Guard.Against.NullOrEmpty(instructor);
+        Price = Guard.Against.Negative(price);
+        Url = Guard.Against.NullOrEmpty(url);
+    }
+    
+    internal CourseDto ToDto() =>
+        new CourseDto(Id,
+            SchoolId,
+            Title,
+            Description,
+            Instructor,
+            Price,
+            Url);
 }
