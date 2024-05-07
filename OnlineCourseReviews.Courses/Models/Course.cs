@@ -1,6 +1,6 @@
 using Ardalis.GuardClauses;
 
-namespace OnlineCourseReviews.Courses;
+namespace OnlineCourseReviews.Courses.Models;
 
 internal class Course
 {
@@ -14,7 +14,7 @@ internal class Course
     
     public string Instructor { get; private set; }
     
-    public decimal Price { get; private set; }
+    public decimal? Price { get; private set; }
     
     public string Url { get; private set; }
 
@@ -22,9 +22,9 @@ internal class Course
     
     public DateTime CreatedAt { get; private set; }
     
-    internal Course(Guid schoolId, string title, string description, string instructor, decimal price, string url)
+    internal Course(Guid courseId, Guid schoolId, string title, string description, string instructor, decimal price, string url)
     {
-        Id = Guid.NewGuid();
+        Id = courseId;
         SchoolId = schoolId;
         Title = Guard.Against.NullOrEmpty(title);
         Description = Guard.Against.NullOrEmpty(description);

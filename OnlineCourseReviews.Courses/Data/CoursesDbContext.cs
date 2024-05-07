@@ -1,23 +1,23 @@
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
-using OnlineCourseReviews.Reviews.Models;
+using OnlineCourseReviews.Courses.Models;
 
-namespace OnlineCourseReviews.Reviews.Data;
+namespace OnlineCourseReviews.Courses.Data;
 
-public class ReviewDbContext : DbContext
+public class CoursesDbContext : DbContext
 {
-    internal DbSet<Review> Reviews { get; set; }
-
-    public ReviewDbContext(DbContextOptions<ReviewDbContext> options) : base(options)
+    internal DbSet<Course> Courses { get; set; }
+    
+    public CoursesDbContext(DbContextOptions<CoursesDbContext> options) : base(options)
     {
     }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.HasDefaultSchema("Reviews");
+        modelBuilder.HasDefaultSchema("Courses");
         modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
-
+    
     protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
     {
         configurationBuilder.Properties<decimal>().HavePrecision(18, 6);
