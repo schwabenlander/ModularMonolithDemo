@@ -4,7 +4,7 @@ using OnlineCourseReviews.Reviews.Models;
 
 namespace OnlineCourseReviews.Reviews.Data;
 
-internal class ReviewConfiguration : IEntityTypeConfiguration<Review>
+internal class ReviewsConfiguration : IEntityTypeConfiguration<Review>
 {
     private static readonly string UserId = "sean@schwabenlander.com";
     private static readonly Guid CourseGuid = Guid.Parse("00000000-0000-0000-0000-00000000000C");

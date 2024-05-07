@@ -20,9 +20,6 @@
 
     <ItemGroup>
       <Folder Include="CourseEndpoints\" />
-      <Folder Include="Dtos\" />
-      <Folder Include="Repositories\" />
-      <Folder Include="Services\" />
     </ItemGroup>
 
 </Project>

@@ -11,7 +11,7 @@ using OnlineCourseReviews.Reviews.Data;
 
 namespace OnlineCourseReviews.Reviews.Data.Migrations
 {
-    [DbContext(typeof(ReviewDbContext))]
+    [DbContext(typeof(ReviewsDbContext))]
     [Migration("20240501022104_Initial")]
     partial class Initial
     {

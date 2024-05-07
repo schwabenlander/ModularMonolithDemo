@@ -13,7 +13,7 @@ public static class ReviewServiceExtensions
         ConfigurationManager config, ILogger logger)
     {
         string? connectionString = config.GetConnectionString("ReviewsConnectionString");
-        services.AddDbContext<ReviewDbContext>(options => options.UseSqlServer(connectionString));
+        services.AddDbContext<ReviewsDbContext>(options => options.UseSqlServer(connectionString));
         services.AddScoped<IReviewService, ReviewService>();
         services.AddScoped<IReviewRepository, EfReviewRepository>();
         

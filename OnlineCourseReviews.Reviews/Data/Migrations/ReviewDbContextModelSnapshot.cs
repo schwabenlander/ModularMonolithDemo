@@ -10,7 +10,7 @@ using OnlineCourseReviews.Reviews.Data;
 
 namespace OnlineCourseReviews.Reviews.Data.Migrations
 {
-    [DbContext(typeof(ReviewDbContext))]
+    [DbContext(typeof(ReviewsDbContext))]
     partial class ReviewDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -6,7 +6,7 @@ internal class Course
 {
     public Guid Id { get; private set; }
     
-    public Guid? SchoolId { get; private set; }
+    public Guid SchoolId { get; private set; }
     
     public string Title { get; private set; }
     
@@ -14,7 +14,7 @@ internal class Course
     
     public string Instructor { get; private set; }
     
-    public decimal? Price { get; private set; }
+    public decimal Price { get; private set; }
     
     public string Url { get; private set; }
 
@@ -22,10 +22,10 @@ internal class Course
     
     public DateTime CreatedAt { get; private set; }
     
-    internal Course(Guid courseId, Guid schoolId, string title, string description, string instructor, decimal price, string url)
+    internal Course(Guid id, Guid schoolId, string title, string description, string instructor, decimal price, string url)
     {
-        Id = courseId;
-        SchoolId = schoolId;
+        Id = Guard.Against.Default(id);
+        SchoolId = Guard.Against.Default(schoolId);
         Title = Guard.Against.NullOrEmpty(title);
         Description = Guard.Against.NullOrEmpty(description);
         Instructor = Guard.Against.NullOrEmpty(instructor);

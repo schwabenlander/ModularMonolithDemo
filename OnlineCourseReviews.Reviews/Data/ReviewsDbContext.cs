@@ -4,11 +4,11 @@ using OnlineCourseReviews.Reviews.Models;
 
 namespace OnlineCourseReviews.Reviews.Data;
 
-public class ReviewDbContext : DbContext
+public class ReviewsDbContext : DbContext
 {
     internal DbSet<Review> Reviews { get; set; }
 
-    public ReviewDbContext(DbContextOptions<ReviewDbContext> options) : base(options)
+    public ReviewsDbContext(DbContextOptions<ReviewsDbContext> options) : base(options)
     {
     }
     

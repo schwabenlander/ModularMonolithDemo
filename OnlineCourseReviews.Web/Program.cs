@@ -1,6 +1,7 @@
 using FastEndpoints;
 using FastEndpoints.Security;
 using FastEndpoints.Swagger;
+using OnlineCourseReviews.Courses.Services;
 using OnlineCourseReviews.Reviews.Services;
 using OnlineCourseReviews.Users;
 using Serilog;
@@ -27,6 +28,7 @@ builder.Services
 // Add Module Services
 builder.Services.AddUserModuleServices(builder.Configuration, logger);
 builder.Services.AddReviewServices(builder.Configuration, logger);
+builder.Services.AddCourseServices(builder.Configuration, logger);
 
 var app = builder.Build();
 
