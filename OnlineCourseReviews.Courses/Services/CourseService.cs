@@ -5,7 +5,7 @@ using OnlineCourseReviews.Courses.Repositories;
 
 namespace OnlineCourseReviews.Courses.Services;
 
-internal class CourseService(ICourseRepository courseRepository) : ICourseService
+public class CourseService(ICourseRepository courseRepository) : ICourseService
 {
     public async Task<List<CourseDto>> GetCoursesAsync()
     {
@@ -70,7 +70,9 @@ internal class CourseService(ICourseRepository courseRepository) : ICourseServic
             throw new NotFoundException(courseDto.Id.ToString()!, nameof(courseDto));
         }
         
-        course.Update(courseDto.Title,
+        course.Update(
+            courseDto.SchoolId,
+            courseDto.Title,
             courseDto.Description,
             courseDto.Instructor,
             courseDto.Price,

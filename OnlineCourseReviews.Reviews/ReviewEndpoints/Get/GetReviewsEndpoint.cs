@@ -3,7 +3,7 @@ using OnlineCourseReviews.Reviews.Services;
 
 namespace OnlineCourseReviews.Reviews.ReviewEndpoints.Get;
 
-internal class GetReviewsEndpoint(IReviewService reviewService) : EndpointWithoutRequest<GetReviewsResponse>
+public class GetReviewsEndpoint(IReviewService reviewService) : EndpointWithoutRequest<GetReviewsResponse>
 {
     public override void Configure()
     {

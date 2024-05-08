@@ -6,7 +6,7 @@ namespace OnlineCourseReviews.Courses.Data;
 
 public class CoursesDbContext : DbContext
 {
-    internal DbSet<Course> Courses { get; set; }
+    public DbSet<Course> Courses { get; set; }
     
     public CoursesDbContext(DbContextOptions<CoursesDbContext> options) : base(options)
     {

@@ -4,7 +4,7 @@ using OnlineCourseReviews.Reviews.Models;
 
 namespace OnlineCourseReviews.Reviews.Repositories;
 
-internal class EfReviewRepository(ReviewsDbContext dbContext) : IReviewRepository
+public class EfReviewRepository(ReviewsDbContext dbContext) : IReviewRepository
 {
     public async Task<List<Review>> GetAllAsync()
     {

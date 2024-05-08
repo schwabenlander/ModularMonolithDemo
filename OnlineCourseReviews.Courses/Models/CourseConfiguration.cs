@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace OnlineCourseReviews.Courses.Models;
 
-internal class CourseConfiguration : IEntityTypeConfiguration<Course>
+public class CourseConfiguration : IEntityTypeConfiguration<Course>
 {
     private static readonly Guid SchoolId = Guid.Parse("00000000-0000-0000-0000-000000000010");
     private static readonly Guid Course1Guid = Guid.Parse("00000000-0000-0000-0000-00000000000C");
@@ -18,6 +18,7 @@ internal class CourseConfiguration : IEntityTypeConfiguration<Course>
             .IsRequired();
 
         builder.Property(p => p.Description)
+            .HasMaxLength(DataSchemaConstants.LONG_TEXT_MAX_LENGTH)
             .IsRequired();
 
         builder.Property(p => p.Instructor)
@@ -25,6 +26,7 @@ internal class CourseConfiguration : IEntityTypeConfiguration<Course>
             .IsRequired();
 
         builder.Property(p => p.Url)
+            .HasMaxLength(DataSchemaConstants.URL_MAX_LENGTH)
             .IsRequired();
         
         builder.HasData(GetSampleCourses());

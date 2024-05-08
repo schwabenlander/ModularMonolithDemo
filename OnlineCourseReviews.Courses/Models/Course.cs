@@ -1,9 +1,10 @@
 using Ardalis.GuardClauses;
 using OnlineCourseReviews.Courses.Dtos;
+using OnlineCourseReviews.Reviews.Models;
 
 namespace OnlineCourseReviews.Courses.Models;
 
-internal class Course
+public class Course
 {
     public Guid Id { get; private set; }
     
@@ -18,12 +19,15 @@ internal class Course
     public decimal Price { get; private set; }
     
     public string Url { get; private set; }
+    
+    private readonly List<Review> _reviews = [];
+    public IReadOnlyCollection<Review> Reviews => _reviews.AsReadOnly();
 
     public bool IsVisible { get; private set; }
     
     public DateTime CreatedAt { get; private set; }
     
-    internal Course(Guid id, Guid schoolId, string title, string description, string instructor, decimal price, string url)
+    public Course(Guid id, Guid schoolId, string title, string description, string instructor, decimal price, string url)
     {
         Id = Guard.Against.Default(id);
         SchoolId = Guard.Against.Default(schoolId);
@@ -35,12 +39,26 @@ internal class Course
         CreatedAt = DateTime.UtcNow;
     }
     
-    internal void ShowCourse() => IsVisible = true;
+    public void ShowCourse() => IsVisible = true;
     
-    internal void HideCourse() => IsVisible = false;
+    public void HideCourse() => IsVisible = false;
     
-    internal void Update(string title, string description, string instructor, decimal price, string url)
+    public void AddReviewToCourse(Review review)
     {
+        Guard.Against.Null(review);
+        
+        var reviewExists = _reviews.Any(r => r.Id == review.Id);
+        if (reviewExists)
+        {
+            throw new InvalidOperationException("Review already exists for this course.");
+        }
+        
+        _reviews.Add(review);
+    }
+    
+    public void Update(Guid schoolId, string title, string description, string instructor, decimal price, string url)
+    {
+        SchoolId = Guard.Against.Default(schoolId);
         Title = Guard.Against.NullOrEmpty(title);
         Description = Guard.Against.NullOrEmpty(description);
         Instructor = Guard.Against.NullOrEmpty(instructor);
@@ -48,7 +66,7 @@ internal class Course
         Url = Guard.Against.NullOrEmpty(url);
     }
     
-    internal CourseDto ToDto() =>
+    public CourseDto ToDto() =>
         new CourseDto(Id,
             SchoolId,
             Title,

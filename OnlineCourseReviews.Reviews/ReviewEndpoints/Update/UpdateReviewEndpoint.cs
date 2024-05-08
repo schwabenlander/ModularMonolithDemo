@@ -4,7 +4,7 @@ using OnlineCourseReviews.Reviews.Services;
 
 namespace OnlineCourseReviews.Reviews.ReviewEndpoints.Update;
 
-internal class UpdateReviewEndpoint(IReviewService reviewService) : Endpoint<UpdateReviewRequest, ReviewDto>
+public class UpdateReviewEndpoint(IReviewService reviewService) : Endpoint<UpdateReviewRequest, ReviewDto>
 {
     public override void Configure()
     {

@@ -5,7 +5,7 @@ using OnlineCourseReviews.Reviews.Repositories;
 
 namespace OnlineCourseReviews.Reviews.Services;
 
-internal class ReviewService(IReviewRepository reviewRepository) : IReviewService
+public class ReviewService(IReviewRepository reviewRepository) : IReviewService
 {
     public async Task<List<ReviewDto>> GetReviewsAsync()
     {

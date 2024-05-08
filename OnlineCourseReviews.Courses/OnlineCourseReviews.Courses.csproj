@@ -22,4 +22,8 @@
       <Folder Include="CourseEndpoints\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\OnlineCourseReviews.Reviews\OnlineCourseReviews.Reviews.csproj" />
+    </ItemGroup>
+
 </Project>

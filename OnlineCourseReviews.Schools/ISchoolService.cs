@@ -1,6 +1,6 @@
 namespace OnlineCourseReviews.Schools;
 
-internal interface ISchoolService
+public interface ISchoolService
 {
     Task<List<SchoolDto>> GetSchoolsAsync();
     

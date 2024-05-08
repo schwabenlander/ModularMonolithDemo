@@ -1,6 +1,6 @@
 namespace OnlineCourseReviews.Reviews.ReviewEndpoints.Update;
 
-internal class UpdateReviewRequest
+public class UpdateReviewRequest
 {
     public required Guid Id { get; set; }
     

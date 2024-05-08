@@ -3,7 +3,7 @@ using OnlineCourseReviews.Reviews.Dtos;
 
 namespace OnlineCourseReviews.Reviews.Models;
 
-internal class Review
+public class Review
 {
     public Guid Id { get; private set; }
 
@@ -27,7 +27,7 @@ internal class Review
     
     public bool IsVisible { get; private set; }
 
-    internal Review(Guid id, Guid courseId, string userId, string reviewText, int rating, bool isRecommended, 
+    public Review(Guid id, Guid courseId, string userId, string reviewText, int rating, bool isRecommended, 
         bool isCourseCompleted, decimal? pricePaid, string? discountCodeUsed)
     {
         Id = Guard.Against.Default(id);
@@ -41,8 +41,8 @@ internal class Review
         DiscountCodeUsed = discountCodeUsed;
         CreatedAt = DateTime.UtcNow;
     }
-    
-    internal void Update(string reviewText, int rating, bool isRecommended, bool isCourseCompleted, 
+
+    public void Update(string reviewText, int rating, bool isRecommended, bool isCourseCompleted, 
         decimal? pricePaid, string? discountCodeUsed)
     {
         ReviewText = Guard.Against.NullOrEmpty(reviewText);
@@ -52,12 +52,12 @@ internal class Review
         PricePaid = pricePaid.HasValue ? Guard.Against.NegativeOrZero(pricePaid.Value) : null;
         DiscountCodeUsed = discountCodeUsed;
     }
+
+    public void ApproveReview() => IsVisible = true;
+
+    public void HideReview() => IsVisible = false;
     
-    internal void ApproveReview() => IsVisible = true;
-    
-    internal void HideReview() => IsVisible = false;
-    
-    internal ReviewDto ToDto() =>
+    public ReviewDto ToDto() =>
         new ReviewDto(Id,
             CourseId,
             UserId,

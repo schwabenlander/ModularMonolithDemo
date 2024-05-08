@@ -4,7 +4,7 @@ using OnlineCourseReviews.Reviews.Services;
 
 namespace OnlineCourseReviews.Reviews.ReviewEndpoints.Get;
 
-internal class GetReviewByIdEndpoint(IReviewService reviewService) : Endpoint<GetReviewByIdRequest, ReviewDto>
+public class GetReviewByIdEndpoint(IReviewService reviewService) : Endpoint<GetReviewByIdRequest, ReviewDto>
 {
     public override void Configure()
     {

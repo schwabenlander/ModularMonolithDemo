@@ -2,7 +2,7 @@ using OnlineCourseReviews.Reviews.Models;
 
 namespace OnlineCourseReviews.Reviews.Repositories;
 
-internal interface IReviewRepository : IReadOnlyReviewRepository
+public interface IReviewRepository : IReadOnlyReviewRepository
 {
     Task<Review> AddAsync(Review review);
     
@@ -11,7 +11,7 @@ internal interface IReviewRepository : IReadOnlyReviewRepository
     Task DeleteAsync(Review review);
 }
 
-internal interface IReadOnlyReviewRepository
+public interface IReadOnlyReviewRepository
 {
     Task<List<Review>> GetAllAsync();
     

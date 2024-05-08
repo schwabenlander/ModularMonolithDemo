@@ -5,7 +5,7 @@ using OnlineCourseReviews.Reviews.Services;
 
 namespace OnlineCourseReviews.Reviews.ReviewEndpoints.Create;
 
-internal class CreateReviewEndpoint(IReviewService reviewService) : Endpoint<CreateReviewRequest, ReviewDto>
+public class CreateReviewEndpoint(IReviewService reviewService) : Endpoint<CreateReviewRequest, ReviewDto>
 {
     public override void Configure()
     {

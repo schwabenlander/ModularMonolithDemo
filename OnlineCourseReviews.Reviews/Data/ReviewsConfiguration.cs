@@ -35,6 +35,9 @@ internal class ReviewsConfiguration : IEntityTypeConfiguration<Review>
         builder.Property(p => p.IsCourseCompleted)
             .IsRequired();
         
+        builder.Property(p => p.DiscountCodeUsed)
+            .HasMaxLength(DataSchemaConstants.DEFAULT_MAX_LENGTH);
+        
         builder.Property(p => p.CreatedAt)
             .IsRequired();
 

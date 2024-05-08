@@ -2,7 +2,7 @@ using OnlineCourseReviews.Courses.Models;
 
 namespace OnlineCourseReviews.Courses.Repositories;
 
-internal interface ICourseRepository
+public interface ICourseRepository
 {
     Task<IEnumerable<Course>> GetAllAsync();
     Task<Course?> GetByIdAsync(Guid id);

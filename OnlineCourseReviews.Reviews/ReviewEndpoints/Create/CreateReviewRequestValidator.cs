@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace OnlineCourseReviews.Reviews.ReviewEndpoints.Create;
 
-internal class CreateReviewRequestValidator : Validator<CreateReviewRequest>
+public class CreateReviewRequestValidator : Validator<CreateReviewRequest>
 {
     public CreateReviewRequestValidator()
     {

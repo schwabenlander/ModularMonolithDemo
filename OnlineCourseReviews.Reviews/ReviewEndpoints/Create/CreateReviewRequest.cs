@@ -1,6 +1,6 @@
 namespace OnlineCourseReviews.Reviews.ReviewEndpoints.Create;
 
-internal class CreateReviewRequest
+public class CreateReviewRequest
 {
     public required Guid CourseId { get; set; }
     

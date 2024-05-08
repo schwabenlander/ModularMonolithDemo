@@ -3,7 +3,7 @@ using OnlineCourseReviews.Reviews.Services;
 
 namespace OnlineCourseReviews.Reviews.ReviewEndpoints.Delete;
 
-internal class DeleteReviewEndpoint(IReviewService reviewService) : Endpoint<DeleteReviewRequest>
+public class DeleteReviewEndpoint(IReviewService reviewService) : Endpoint<DeleteReviewRequest>
 {
     public override void Configure()
     {

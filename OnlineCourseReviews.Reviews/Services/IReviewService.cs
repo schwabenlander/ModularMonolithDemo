@@ -2,7 +2,7 @@ using OnlineCourseReviews.Reviews.Dtos;
 
 namespace OnlineCourseReviews.Reviews.Services;
 
-internal interface IReviewService
+public interface IReviewService
 {
     Task<List<ReviewDto>> GetReviewsAsync();
     

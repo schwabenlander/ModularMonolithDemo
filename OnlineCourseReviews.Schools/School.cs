@@ -2,7 +2,7 @@ using Ardalis.GuardClauses;
 
 namespace OnlineCourseReviews.Schools;
 
-internal class School
+public class School
 {
     public Guid Id { get; private set; }
     

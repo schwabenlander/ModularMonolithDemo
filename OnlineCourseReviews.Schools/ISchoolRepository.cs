@@ -1,6 +1,6 @@
 namespace OnlineCourseReviews.Schools;
 
-internal interface ISchoolRepository : IReadOnlySchoolRepository
+public interface ISchoolRepository : IReadOnlySchoolRepository
 {
     Task AddAsync(School school);
     
@@ -9,7 +9,7 @@ internal interface ISchoolRepository : IReadOnlySchoolRepository
     Task DeleteAsync(Guid schoolId);
 }
 
-internal interface IReadOnlySchoolRepository
+public interface IReadOnlySchoolRepository
 {
     Task<List<School>> GetAllAsync();
     

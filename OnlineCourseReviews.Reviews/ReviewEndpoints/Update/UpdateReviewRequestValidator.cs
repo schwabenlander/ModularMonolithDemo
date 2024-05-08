@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace OnlineCourseReviews.Reviews.ReviewEndpoints.Update;
 
-internal class UpdateReviewRequestValidator : Validator<UpdateReviewRequest>
+public class UpdateReviewRequestValidator : Validator<UpdateReviewRequest>
 {
     public UpdateReviewRequestValidator()
     {
