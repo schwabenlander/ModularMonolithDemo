@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using OnlineCourseReviews.Courses.Models;
 
-namespace OnlineCourseReviews.Courses.Models;
+namespace OnlineCourseReviews.Courses.Data;
 
 public class CourseConfiguration : IEntityTypeConfiguration<Course>
 {
