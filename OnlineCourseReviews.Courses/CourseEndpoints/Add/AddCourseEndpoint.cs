@@ -1,4 +1,5 @@
 using FastEndpoints;
+using OnlineCourseReviews.Courses.CourseEndpoints.Get;
 using OnlineCourseReviews.Courses.Dtos;
 using OnlineCourseReviews.Courses.Services;
 
@@ -23,6 +24,6 @@ public class AddCourseEndpoint(ICourseService courseService) : Endpoint<AddCours
             request.Url);
         
         var addedCourse = await courseService.AddCourseAsync(course);
-        await SendOkAsync(cancellationToken);
+        await SendCreatedAtAsync<GetCourseByIdEndpoint>(new { id = addedCourse.Id }, addedCourse);
     }
 }

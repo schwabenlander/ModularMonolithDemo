@@ -17,7 +17,7 @@ public static class CourseServiceExtensions
         services.AddScoped<ICourseService, CourseService>();
         services.AddScoped<ICourseRepository, EfCourseRepository>();
         
-        logger.Information("Registered {Module} services", "Reviews");
+        logger.Information("Registered {Module} services", "Courses");
         
         return services;
     }
