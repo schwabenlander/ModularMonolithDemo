@@ -79,3 +79,25 @@ Content-Type: application/json
 ###
 
 @token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJzZWFuQHRlc3QuY29tIiwiZXhwIjoxNzE1MDIxMDEzLCJpYXQiOjE3MTQ5MzQ2MTMsIm5iZiI6MTcxNDkzNDYxM30.ZyUb_a-qf2XQFDPUJuvewBJyA9SbPHvUP5Ip_bg_Xt8
+
+# Add course
+
+POST {{OnlineCourseReviews.Api_HostAddress}}/api/courses
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "schoolId": "00000000-0000-0000-0000-00000000000a",
+  "title": "Introduction to Data Science",
+  "description": "Learn the basics of data science",
+  "instructor": "John Doe",
+  "price": 50.000000,
+  "url": "https://www.udemy.com/introduction-to-data-science"
+}
+
+### Get all courses
+
+GET {{OnlineCourseReviews.Api_HostAddress}}/api/courses
+Accept: application/json
+Authorization: Bearer {{token}}
