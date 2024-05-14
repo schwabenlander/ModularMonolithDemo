@@ -5,8 +5,6 @@ namespace OnlineCourseReviews.Users.UserEndpoints;
 
 public class CreateUserEndpoint(UserManager<ApplicationUser> userManager) : Endpoint<CreateUserRequest>
 {
-    private readonly UserManager<ApplicationUser> _userManager = userManager;
-
     public override void Configure()
     {
         Post("/api/users");
@@ -24,7 +22,7 @@ public class CreateUserEndpoint(UserManager<ApplicationUser> userManager) : Endp
             LastName = request.LastName
         };
         
-        await _userManager.CreateAsync(newUser, request.Password);
+        await userManager.CreateAsync(newUser, request.Password);
 
         await SendOkAsync(cancellationToken);
     }
