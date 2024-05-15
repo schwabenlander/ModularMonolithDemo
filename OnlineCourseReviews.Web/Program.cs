@@ -1,7 +1,9 @@
 using FastEndpoints;
 using FastEndpoints.Security;
 using FastEndpoints.Swagger;
+using OnlineCourseReviews.Courses.Models;
 using OnlineCourseReviews.Courses.Services;
+using OnlineCourseReviews.Reviews.Models;
 using OnlineCourseReviews.Reviews.Services;
 using OnlineCourseReviews.Users;
 using Serilog;
@@ -26,6 +28,8 @@ builder.Services
     .SwaggerDocument();
 
 // Add Module Services
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies([typeof(Review).Assembly, 
+    typeof(Course).Assembly]));
 builder.Services.AddUserModuleServices(builder.Configuration, logger);
 builder.Services.AddReviewServices(builder.Configuration, logger);
 builder.Services.AddCourseServices(builder.Configuration, logger);

@@ -78,7 +78,7 @@ Content-Type: application/json
 
 ###
 
-@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJzZWFuQHRlc3QuY29tIiwiZXhwIjoxNzE1Mzk4ODI4LCJpYXQiOjE3MTUzMTI0MjgsIm5iZiI6MTcxNTMxMjQyOH0.kcgKac0KgpYn-_LY0uRkgox1Q1meG_k27fzXRXaXB1k
+@token=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbEFkZHJlc3MiOiJzZWFuQHRlc3QuY29tIiwiZXhwIjoxNzE1ODI0NTI1LCJpYXQiOjE3MTU3MzgxMjUsIm5iZiI6MTcxNTczODEyNX0.j9kPM24ToY5JE275h9Fp4tAcd9s-tYdqstKpqjww3lM
 
 # Add course
 
@@ -104,14 +104,26 @@ Authorization: Bearer {{token}}
 
 ### Get course by id
 
-@CourseId=277c1a43-9171-4db5-9cbf-4139a3035a62
+@CourseId=dd312051-ba46-4c4f-840e-ab7205944ed1
 GET {{OnlineCourseReviews.Api_HostAddress}}/api/courses/{{CourseId}}
 Accept: application/json
 Authorization: Bearer {{token}}
 
 ### Delete course
 
-@CourseIdToDelete=277c1a43-9171-4db5-9cbf-4139a3035a62
+@CourseIdToDelete=dd312051-ba46-4c4f-840e-ab7205944ed1
 DELETE {{OnlineCourseReviews.Api_HostAddress}}/api/courses/{{CourseIdToDelete}}
 Accept: application/json
 Authorization: Bearer {{token}}
+
+### Add review to course
+
+POST {{OnlineCourseReviews.Api_HostAddress}}/api/courses/{{CourseId}}/reviews
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "courseId": "{{CourseId}}",
+  "reviewId": "00000000-0000-0000-0000-000000000001"
+}
